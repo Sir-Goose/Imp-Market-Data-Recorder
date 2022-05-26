@@ -82,12 +82,15 @@ def record_imp_price():
     dateAndTime = datetime.now()
     print(dateAndTime)
 
+    # liquidity information
+    totalLiquidity = totalValueInUSD
+
     # array = numpy.array([[dateAndTime, impPrice, totalSupply]])
     # with open('impHistoricalData.csv', 'w', newline='') as file:
     #   mywriter = csv.writer(file, delimiter=',')
     #   mywriter.writerows(array)
 
-    list_row_append = [[dateAndTime, impPrice, totalSupply]]
+    list_row_append = [[dateAndTime, impPrice, totalSupply, totalLiquidity]]
     numpy_array_rows_append = numpy.array(list_row_append)
     with open('impHistoricalData.csv', 'a') as csvfile:
         numpy.savetxt(csvfile, numpy_array_rows_append, delimiter=',', fmt='%s')
